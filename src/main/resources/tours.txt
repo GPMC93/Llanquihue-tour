@@ -1,0 +1,5 @@
+Ruta de los Volcanes;Aventura;85000
+Isla de Chiloe;Cultural;62000
+Crucero Lagos;Navegacion;95000
+Tour Gastronomico;Gastronomico;48000
+Saltos del Petrohue;Naturaleza;30000
