@@ -1,6 +1,7 @@
-package data;
+package service;
 
 import model.Tour;
+import model.Ubicacion;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -31,45 +32,42 @@ public class GestorDatos {
      */
     public void cargarDatos() {
         try {
-            // Abre el archivo tours.txt desde la carpeta resources
             InputStream input = getClass().getClassLoader().getResourceAsStream("tours.txt");
 
-            // Si no encuentra el archivo, muestra mensaje y termina
             if (input == null) {
                 System.out.println("No se encontró el archivo tours.txt");
                 return;
             }
 
-            // Permite leer el archivo línea por línea
             BufferedReader reader = new BufferedReader(new InputStreamReader(input));
 
             String linea;
 
-            // Lee cada línea hasta llegar al final del archivo
             while ((linea = reader.readLine()) != null) {
-
-                // Separa los datos usando ; como delimitador
                 String[] partes = linea.split(";");
 
-                // Guarda cada parte en una variable
                 String nombre = partes[0];
                 String tipo = partes[1];
                 double precio = Double.parseDouble(partes[2]);
+                String comuna = partes[3];
+                String region = partes[4];
 
-                // Crea un objeto Tour con los datos de la línea
-                Tour tour = new Tour(nombre, tipo, precio);
+                Ubicacion ubicacion = new Ubicacion(comuna, region);
+                Tour tour = new Tour(nombre, tipo, precio, ubicacion);
 
-                // Agrega el objeto Tour al ArrayList
                 listaTours.add(tour);
             }
 
-            // Cierra el lector
             reader.close();
 
         } catch (IOException e) {
             System.out.println("Error al leer el archivo: " + e.getMessage());
         } catch (NumberFormatException e) {
             System.out.println("Error en el formato del precio: " + e.getMessage());
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Error: faltan datos en una línea del archivo.");
+        } catch (IllegalArgumentException e) {
+            System.out.println("Error de validación: " + e.getMessage());
         }
     }
 
@@ -78,5 +76,19 @@ public class GestorDatos {
      */
     public ArrayList<Tour> getListaTours() {
         return listaTours;
+    }
+    /**
+     * Busca tours cuyo nombre contenga el texto ingresado.
+     */
+    public ArrayList<Tour> buscarPorNombre(String textoBuscado) {
+        ArrayList<Tour> resultados = new ArrayList<>();
+
+        for (Tour tour : listaTours) {
+            if (tour.getNombre().toLowerCase().contains(textoBuscado.toLowerCase())) {
+                resultados.add(tour);
+            }
+        }
+
+        return resultados;
     }
 }

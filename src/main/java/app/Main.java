@@ -1,6 +1,6 @@
-package ui;
+package app;
 
-import data.GestorDatos;
+import service.GestorTours;
 import model.Tour;
 
 /**
@@ -11,7 +11,7 @@ public class Main {
     public static void main(String[] args) {
 
         // Crea el gestor de datos
-        GestorDatos gestor = new GestorDatos();
+        GestorTours gestor = new GestorTours();
 
         // Carga los tours desde el archivo tours.txt
         gestor.cargarDatos();
@@ -38,6 +38,12 @@ public class Main {
             if (tour.getTipo().equalsIgnoreCase("Gastronomico")) {
                 System.out.println(tour);
             }
+        }
+        // Busca tours por nombre
+        System.out.println();
+        System.out.println("=== BUSQUEDA POR NOMBRE: 'Tour' ===");
+        for (Tour tour : gestor.buscarPorNombre("Tour")) {
+            System.out.println(tour);
         }
     }
 }
