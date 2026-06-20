@@ -13,7 +13,7 @@ import java.util.ArrayList;
  * Clase encargada de leer el archivo tours.txt
  * y almacenar los tours en un ArrayList.
  */
-public class GestorDatos {
+public class GestorTours {
 
     // Lista donde se guardarán los objetos Tour
     private ArrayList<Tour> listaTours;
@@ -21,7 +21,7 @@ public class GestorDatos {
     /**
      * Constructor que inicializa la lista de tours.
      */
-    public GestorDatos() {
+    public GestorTours() {
         listaTours = new ArrayList<>();
     }
 
