@@ -21,9 +21,14 @@ public class ExcursionCultural extends ServicioTuristico {
     }
 
     @Override
-    public String toString() {
+    public String mostrarInformacion() {
         return "Excursión Cultural -> Nombre: " + getNombre() +
                 ", Duración: " + getDuracionHoras() + " horas" +
                 ", Lugar histórico: " + lugarHistorico;
+    }
+
+    @Override
+    public String toString() {
+        return mostrarInformacion();
     }
 }

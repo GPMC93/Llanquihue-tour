@@ -1,5 +1,0 @@
-Ruta de los Volcanes;Aventura;85000;Ensenada;Los Lagos
-Isla de Chiloe;Cultural;62000;Castro;Los Lagos
-Crucero Lagos;Navegacion;95000;Puerto Varas;Los Lagos
-Tour Gastronomico;Gastronomico;48000;Frutillar;Los Lagos
-Saltos del Petrohue;Naturaleza;30000;Petrohue;Los Lagos
