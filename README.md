@@ -1,56 +1,61 @@
 # LlanquihueTourApp
 
-Proyecto Java desarrollado para la agencia de turismo Llanquihue Tour.
+Aplicación Java desarrollada para gestionar distintas entidades de la agencia de turismo Llanquihue Tour.
 
-## Descripción de la semana 7
+## Descripción
 
-En esta actividad se trabajó con una jerarquía de clases previamente creada para aplicar polimorfismo y colecciones genéricas. Se implementó el método `mostrarInformacion()` en la superclase `ServicioTuristico` y se sobrescribió en las subclases para mostrar información específica de cada tipo de servicio.
+El sistema permite registrar y visualizar guías turísticos, vehículos y colaboradores externos mediante una interfaz gráfica creada con JOptionPane.
 
-Además, se utilizó una colección polimórfica del tipo `List<ServicioTuristico>`, que permite almacenar distintos tipos de servicios turísticos en una misma lista y recorrerlos de forma dinámica.
+Las distintas entidades comparten un comportamiento común mediante la interfaz Registrable y se almacenan en una colección ArrayList<Registrable>.
 
-## Paquetes utilizados
-
-* `model`
-* `data`
-* `ui`
-
-## Clases implementadas
-
-### `model`
-
-* `ServicioTuristico`: superclase con atributos comunes y método `mostrarInformacion()`.
-* `RutaGastronomica`: subclase con atributo `numeroDeParadas`.
-* `PaseoLacustre`: subclase con atributo `tipoEmbarcacion`.
-* `ExcursionCultural`: subclase con atributo `lugarHistorico`.
-
-### `data`
-
-* `GestorServicios`: clase encargada de crear una colección `List<ServicioTuristico>` con instancias de distintas subclases.
-
-### `ui`
-
-* `Main`: clase principal que ejecuta el programa y recorre la colección mostrando la información de cada servicio turístico.
-
-## Conceptos aplicados
-
-* Herencia con `extends`
-* Sobrescritura de métodos con `@Override`
-* Polimorfismo
-* Colecciones genéricas con `List<ServicioTuristico>`
-* Recorrido con `for-each`
-
-## Instrucciones para ejecutar el sistema
-
-1. Abrir el proyecto en IntelliJ IDEA.
-2. Verificar que el JDK esté configurado correctamente.
-3. Ejecutar la clase `ui.Main`.
-4. Revisar la salida en consola.
+El programa utiliza polimorfismo e instanceof para identificar cada tipo de entidad y ejecutar comportamientos específicos.
 
 ## Estructura del proyecto
 
-* `src/main/java/model/ServicioTuristico.java`
-* `src/main/java/model/RutaGastronomica.java`
-* `src/main/java/model/PaseoLacustre.java`
-* `src/main/java/model/ExcursionCultural.java`
-* `src/main/java/data/GestorServicios.java`
-* `src/main/java/ui/Main.java`
+### Paquete model
+
+- Registrable: interfaz que define el método mostrarResumen().
+- RecursoAgencia: superclase abstracta con los atributos código y nombre.
+- GuiaTuristico: representa a los guías y agrega una especialidad.
+- Vehiculo: representa los vehículos y agrega patente y tipo.
+- ColaboradorExterno: representa colaboradores y agrega un rol.
+
+### Paquete data
+
+- GestorEntidades: administra una colección ArrayList<Registrable>, permite agregar entidades, recorrerlas y diferenciarlas mediante instanceof.
+
+### Paquete ui
+
+- Main: clase principal que ejecuta la interfaz gráfica con JOptionPane.
+
+## Conceptos aplicados
+
+- Interfaces
+- Herencia
+- Encapsulamiento
+- Polimorfismo
+- Sobrescritura de métodos
+- Colecciones genéricas
+- Uso de instanceof
+- Manejo de excepciones
+- Interfaz gráfica con JOptionPane
+
+## Funcionalidades
+
+- Registrar un guía turístico.
+- Registrar un vehículo.
+- Registrar un colaborador externo.
+- Mostrar todas las entidades registradas.
+- Ejecutar acciones específicas según el tipo de entidad.
+
+## Instrucciones de ejecución
+
+1. Abrir el proyecto LlanquihueTourApp en IntelliJ IDEA.
+2. Verificar que el JDK esté configurado.
+3. Abrir la clase `ui.Main`.
+4. Ejecutar el método `main`.
+5. Utilizar el menú gráfico para registrar o visualizar entidades.
+
+## Autor
+
+Giovanni Mena
